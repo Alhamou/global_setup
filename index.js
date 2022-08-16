@@ -1,21 +1,19 @@
 
 let obj = {}
 
-addMudole = function(name){obj = {...obj, ...require(name)}}
+addMudole = name => obj = {...obj, ...require(name)}
 
 const modules = ["./func1","./func2", "./out.js"]
 
-modules.forEach(name => addMudole(name))
+modules.forEach(addMudole)
 
-for(let attr in obj){
+for(let attr in obj)
     global[attr] = obj[attr]
-}
 
 
-global.resolveGlobals = async function(){
+global.resolveGlobals = async ()=>{
     for(let attr in global){
-        if (global[attr] instanceof Promise){
+        if (global[attr] instanceof Promise)
             global[attr] = await global[attr]
-        }
     }
 }

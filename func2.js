@@ -1,4 +1,4 @@
-const func1 = function(){
+const func1 = ()=>{
     return "i am here Function 1"
 }
 
