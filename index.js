@@ -1,9 +1,6 @@
-
-let obj = {}
-
 const modules = ["./func1.js","./func2.js", "./out.js"]
 modules.forEach(name => {
-    obj = {...obj, ...require(name)}
+    let obj = {...require(name)}
     for(let key in obj) global[key] = obj[key]
 })
 
