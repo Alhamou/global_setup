@@ -16,3 +16,4 @@ global.resolveGlobals = async ()=>{
             global[attr] = await global[attr]
     }
 }
+// (async ()=> await global.resolveGlobals())()
