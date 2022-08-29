@@ -1,13 +1,11 @@
 
 let obj = {}
 
-
-const modules = ["./func1","./func2", "./out.js"]
-
-modules.forEach(name => obj = {...obj, ...require(name)})
-
-for(let attr in obj)
-    global[attr] = obj[attr]
+const modules = ["./func1.js","./func2.js", "./out.js"]
+modules.forEach(name => {
+    obj = {...obj, ...require(name)}
+    for(let key in obj) global[key] = obj[key]
+})
 
 
 global.resolveGlobals = async ()=>{
@@ -16,4 +14,4 @@ global.resolveGlobals = async ()=>{
             global[attr] = await global[attr]
     }
 }
-// (async ()=> await global.resolveGlobals())()
+global.resolveGlobals()
