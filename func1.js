@@ -1,5 +1,5 @@
 const func2 = ()=>{
-    return "i am here Function 1"
+    console.log("i am here Function 2")
 }
 
 module.exports = { func2 }
